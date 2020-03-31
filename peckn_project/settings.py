@@ -25,7 +25,7 @@ SECRET_KEY = '$^n==&=i&23et!#p5m3**e^si_9dm+t29196#_*da2a0p0&0b+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://pecknmanage.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'pecknmanage.herokuapp.com']
 
 
 # Application definition
