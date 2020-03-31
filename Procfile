@@ -1,0 +1,1 @@
+web: gunicorn peckn_project.wsgi --log-file -
