@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import CustomerContact, Order, ProductList
 
-# Register your models here.
+admin.site.register([CustomerContact, Order, ProductList])
