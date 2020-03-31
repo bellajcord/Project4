@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .model import ProductList, CustomerContact, Order
+from .models import ProductList, CustomerContact, Order
 
 class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
