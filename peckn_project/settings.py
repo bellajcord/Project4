@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_extensions',
-    'peckn_appp'
+    'peckn_app'
 ]
 
 MIDDLEWARE = [
@@ -136,5 +136,5 @@ STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
 
-import django_heroku
-  django_heroku.settings(locals())
+# import django_heroku
+#   django_heroku.settings(locals())
