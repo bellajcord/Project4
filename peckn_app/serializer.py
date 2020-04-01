@@ -5,7 +5,7 @@ from .models import ProductList, CustomerContact, Order
 class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductList
-        fields = ('id', 'sample_img', 'matierial_input', 'material_quantity' )
+        fields = ('id', 'sample_img', 'material_input', 'material_quantity' )
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:

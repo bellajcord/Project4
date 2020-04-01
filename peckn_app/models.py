@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 class Order(models.Model):
     customer_name: models.CharField(max_length=255)
     product: models.CharField(max_length=400)
@@ -15,7 +17,7 @@ class Order(models.Model):
 
 class CustomerContact(models.Model):
     customer_name: models.CharField(max_length=200)
-    phone_number: PhoneNumberField(null=False, blank=False, unique=True)
+    phone: models.CharField(blank=True, help_text='Contact phone number')
     customer_address: models.CharField(max_length=250)
     order_history: models.CharField(max_length=400)
 
