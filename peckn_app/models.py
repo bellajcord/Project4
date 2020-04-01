@@ -5,8 +5,8 @@ class Order(models.Model):
     product: models.CharField(max_length=400)
     dimensions: models.CharField(max_length=200)
     color: models.CharField(max_length=200)
-    order_date: models.CharField(max_length=200)
-    due_date: models.CharField(max_length=200)
+    order_date: models.DateField()
+    due_date: models.DateField()
     cost: models.CharField(max_length=200)
     deposit: models.CharField(max_length=200)
 
@@ -15,7 +15,7 @@ class Order(models.Model):
 
 class CustomerContact(models.Model):
     customer_name: models.CharField(max_length=200)
-    phone_number: models.CharField(max_length=100)
+    phone_number: PhoneNumberField(null=False, blank=False, unique=True)
     customer_address: models.CharField(max_length=250)
     order_history: models.CharField(max_length=400)
 
