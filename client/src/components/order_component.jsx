@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-export default class Contact extends Component {
+export default class Order extends Component {
   state = {
     Orders: [],
     newOrder: {

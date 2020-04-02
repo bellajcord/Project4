@@ -25,9 +25,21 @@ class CustomerContact(models.Model):
         return self.customer_name
 
 class ProductList(models.Model):
+    name: models.CharField(max_length=200)
+    description: models.CharField(max_length=400)
     sample_img: models.CharField(max_length=400)
-    material_input: models.CharField(max_length=250)
-    material_quantity: models.CharField(max_length=250)
+    material1: models.CharField(max_length=250)
+    material_quantity1: models.CharField(max_length=250)
+    material2: models.CharField(max_length=250)
+    material_quantity2: models.CharField(max_length=250)
+    material3: models.CharField(max_length=250)
+    material_quantity3: models.CharField(max_length=250)
+    material4: models.CharField(max_length=250)
+    material_quantity4: models.CharField(max_length=250)
+    material5: models.CharField(max_length=250)
+    material_quantity5: models.CharField(max_length=250)
+    material6: models.CharField(max_length=250)
+    material_quantity6: models.CharField(max_length=250)
 
     def __str__(self):
         return self.sample_img
