@@ -64,7 +64,7 @@ export default class Order extends Component {
   };
 
   render() {
-    const allOrders = this.state.Orders.map(Order => {
+    const allOrders = this.state.Orders.map(order => {
       return (
         <Link className="previewAllInside" to={`/Order/${order.id}`}>
           <div className="singleContainer">{Order.name}</div>
