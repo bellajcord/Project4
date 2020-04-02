@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Product, CustomerContact, Order
+from .models import Product, Contact, Order
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,7 +12,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ('id', 'customer_name', 'product', 'dimensions', 'color', 'order_date', 'due_date', 'cost', 'deposit')
 
-class CustomerContactSerializer(serializers.ModelSerializer):
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CustomerContact
+        model = Contact
         fields = ('id', 'customer_name', 'phone_number', 'customer_address', 'order_history')

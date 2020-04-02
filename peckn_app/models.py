@@ -15,7 +15,7 @@ class Order(models.Model):
     def __str__(self):
         return self.customer_name
 
-class CustomerContact(models.Model):
+class Contact(models.Model):
     name: models.CharField(max_length=200)
     phone: models.CharField(blank=True, help_text='Contact phone number')
     customer_address: models.CharField(max_length=250)

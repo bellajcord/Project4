@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default class Contact extends Component {
   state = {
-    CustomerContacts: [],
+    Contacts: [],
     newContact: {
       name: "",
       phone_number: "",
@@ -17,8 +17,8 @@ export default class Contact extends Component {
     this.reloadContactsPage();
   }
   reloadContactsPage = () => {
-    axios.get("/api/v1/CustomerContact/").then(res => {
-      this.setState({ CustomerContacts: res.data });
+    axios.get("/api/v1/Contact/").then(res => {
+      this.setState({ Contacts: res.data });
     });
   };
   onChange = evt => {
@@ -37,7 +37,7 @@ export default class Contact extends Component {
   };
   onSubmit = evt => {
     evt.preventDefault();
-    axios.post("/api/v1/CustomerContact/", this.state.newContact).then(() => {
+    axios.post("/api/v1/Contact/", this.state.newContact).then(() => {
       this.reloadContactsPage();
       this.toggleAddContactForm();
       const copyOfState = { ...this.state };
@@ -58,7 +58,7 @@ export default class Contact extends Component {
   render() {
     const allContacts = this.state.contacts.map(contact => {
       return (
-        <Link className="previewAllInside" to={`/CustomerContact/${contact.id}`}>
+        <Link className="previewAllInside" to={`/Contact/${contact.id}`}>
           <div className="singleContainer">{CustomerContact.name}</div>
         </Link>
       );
