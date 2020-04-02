@@ -11,7 +11,7 @@ export default class NavBar extends Component {
                 </div>
                 <div className='navContainer'>
                     <Link to='/' className='nav'><div>Home</div></Link>
-                    <Link to='/ProductList' className='nav'><div>Products</div></Link>
+                    <Link to='/Products' className='nav'><div>Products</div></Link>
                     <Link to='/Orders' className='nav'><div>Orders</div></Link>
                     <Link to='/CustomerContact' className='nav'><div>Contact Info</div></Link>
                 </div>

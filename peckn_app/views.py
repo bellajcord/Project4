@@ -1,17 +1,17 @@
 from rest_framework import viewsets
 
-from .serializer import OrderSerializer, ProductListSerializer, CustomerContactSerializer
+from .serializer import OrderSerializer, ProductSerializer, CustomerContactSerializer
 
-from .models import Order, ProductList, CustomerContact
+from .models import Order, Product, CustomerContact
 
 
 class OrderView(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
-class ProductListView(viewsets.ModelViewSet):
-    queryset = ProductList.objects.all()
-    serializer_class = ProductListSerializer
+class ProductView(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 
 class CustomerContactView(viewsets.ModelViewSet):

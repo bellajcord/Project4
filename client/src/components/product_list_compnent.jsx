@@ -126,10 +126,19 @@ export default class Product extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="descriptio"
+                  placeholder="description"
                   name="description"
                   onChange={this.onChange}
                   value={this.state.newProduct.description}
+                ></input>
+              </div>
+              <div className="inputBoxDiv">
+                <input
+                  type="text"
+                  placeholder="Image"
+                  name="sample_img"
+                  onChange={this.onChange}
+                  value={this.state.newProduct.sample_img}
                 ></input>
               </div>
               <div className="inputBoxDiv">
