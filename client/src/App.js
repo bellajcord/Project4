@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <div><NavBar/></div>
+        <div><NavBar /></div>
           <div className='router-body'>
           <Switch>
           <Route exact path='/' component={HomePage}/>

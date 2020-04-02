@@ -41,9 +41,9 @@ export default class Order extends Component {
   };
   onSubmit = evt => {
     evt.preventDefault();
-    axios.post("/api/v1/Order/", this.state.newContact).then(() => {
-      this.reloadContactsPage();
-      this.toggleAddContactForm();
+    axios.post("/api/v1/Order/", this.state.newOrder).then(() => {
+      this.reloadOrdersPage();
+      this.toggleAddOrderForm();
       const copyOfState = { ...this.state };
       copyOfState.newOrder = {
         name: "",

@@ -145,7 +145,7 @@ export default class Product extends Component {
                 <input
                   type="text"
                   placeholder="Material 1"
-                  name="Material 1"
+                  name="material1"
                   onChange={this.onChange}
                   value={this.state.newProduct.material1}
                 ></input>
@@ -163,7 +163,7 @@ export default class Product extends Component {
                 <input
                   type="text"
                   placeholder="Material 2"
-                  name="Material 2"
+                  name="material2"
                   onChange={this.onChange}
                   value={this.state.newProduct.material2}
                 ></input>
@@ -181,7 +181,7 @@ export default class Product extends Component {
                 <input
                   type="text"
                   placeholder="Material 3"
-                  name="Material 3"
+                  name="material3"
                   onChange={this.onChange}
                   value={this.state.newProduct.material3}
                 ></input>
@@ -198,10 +198,10 @@ export default class Product extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="Material 1"
-                  name="Material 1"
+                  placeholder="Material 4"
+                  name="material4"
                   onChange={this.onChange}
-                  value={this.state.newProduct.material1}
+                  value={this.state.newProduct.material4}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -217,9 +217,9 @@ export default class Product extends Component {
                 <input
                   type="text"
                   placeholder="Material 5"
-                  name="Material 5"
+                  name="material5"
                   onChange={this.onChange}
-                  value={this.state.newProduct.material1}
+                  value={this.state.newProduct.material5}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -234,10 +234,10 @@ export default class Product extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="Material 1"
-                  name="Material 1"
+                  placeholder="Material 6"
+                  name="material6"
                   onChange={this.onChange}
-                  value={this.state.newProduct.material1}
+                  value={this.state.newProduct.material6}
                 ></input>
               </div>
               <div className="inputBoxDiv">

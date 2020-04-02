@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default class Contact extends Component {
   state = {
-    Contacts: [],
+    contacts: [],
     newContact: {
       name: "",
       phone_number: "",
@@ -17,7 +17,7 @@ export default class Contact extends Component {
     this.reloadContactsPage();
   }
   reloadContactsPage = () => {
-    axios.get("/api/v1/Contact/").then(res => {
+    axios.get("/api/contact/").then(res => {
       this.setState({ Contacts: res.data });
     });
   };
@@ -28,16 +28,10 @@ export default class Contact extends Component {
     copyOfState.newContact[name] = value;
     this.setState(copyOfState);
   };
-  onChange = evt => {
-    const value = evt.target.value;
-    const name = evt.target.name;
-    const copyOfState = { ...this.state };
-    copyOfState.newContact[name] = value;
-    this.setState(copyOfState);
-  };
+ 
   onSubmit = evt => {
     evt.preventDefault();
-    axios.post("/api/v1/Contact/", this.state.newContact).then(() => {
+    axios.post("/api/contact/", this.state.newContact).then(() => {
       this.reloadContactsPage();
       this.toggleAddContactForm();
       const copyOfState = { ...this.state };
@@ -56,10 +50,10 @@ export default class Contact extends Component {
   };
 
   render() {
-    const allContacts = this.state.contacts.map(contact => {
+    const allContacts = this.state.contacts.map((contact) => {
       return (
-        <Link className="previewAllInside" to={`/Contact/${contact.id}`}>
-          <div className="singleContainer">{Contact.name}</div>
+        <Link className="previewAllInside" to={`/contact/${contact.id}`}>
+          <div className="singleContainer">{contact.name}</div>
         </Link>
       );
     });
@@ -95,7 +89,7 @@ export default class Contact extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="name"
+                  placeholder="Name"
                   name="name"
                   onChange={this.onChange}
                   value={this.state.newContact.name}
@@ -104,8 +98,8 @@ export default class Contact extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="company"
-                  name="company"
+                  placeholder="Phone"
+                  name="phone_number"
                   onChange={this.onChange}
                   value={this.state.newContact.phone_number}
                 ></input>
@@ -113,8 +107,8 @@ export default class Contact extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="address"
-                  name="address"
+                  placeholder="Address"
+                  name="customer_address"
                   onChange={this.onChange}
                   value={this.state.newContact.customer_address}
                 ></input>
@@ -122,7 +116,7 @@ export default class Contact extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="order history"
+                  placeholder="Order History"
                   name="order_history"
                   onChange={this.onChange}
                   value={this.state.newContact.order_history}
