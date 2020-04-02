@@ -59,7 +59,7 @@ export default class Contact extends Component {
     const allContacts = this.state.contacts.map(contact => {
       return (
         <Link className="previewAllInside" to={`/Contact/${contact.id}`}>
-          <div className="singleContainer">{CustomerContact.name}</div>
+          <div className="singleContainer">{Contact.name}</div>
         </Link>
       );
     });
