@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 export default class Contact extends Component {
   state = {
     contacts: [],
+    contact: {
+      name: "",
+      phone_number: "",
+      customer_address: "",
+      order_history: ""
+    },
     newContact: {
       name: "",
       phone_number: "",
@@ -13,46 +19,46 @@ export default class Contact extends Component {
     },
     addContactInvisable: false
   };
-  componentDidMount() {
-    this.reloadContactsPage();
-  }
-  reloadContactsPage = () => {
-    axios.get("/api/contact/").then(res => {
-      this.setState({ Contacts: res.data });
-    });
-  };
-  onChange = evt => {
-    const value = evt.target.value;
-    const name = evt.target.name;
-    const copyOfState = { ...this.state };
-    copyOfState.newContact[name] = value;
-    this.setState(copyOfState);
-  };
- 
-  onSubmit = evt => {
-    evt.preventDefault();
-    axios.post("/api/contact/", this.state.newContact).then(() => {
-      this.reloadContactsPage();
-      this.toggleAddContactForm();
-      const copyOfState = { ...this.state };
-      copyOfState.newContact = {
-        name: "",
-        phone_number: "",
-        customer_address: "",
-        order_history: ""
-      };
-      this.setState(copyOfState);
-    });
-  };
+  
   toggleAddContactForm = () => {
     const toggle = !this.state.addContactInvisable;
     this.setState({ addContactInvisable: toggle });
   };
 
+  componentDidMount = () => {
+    axios.get("/api/v1/contacts/").then(res => {
+      this.setState({ contacts: res.data });
+    });
+  };
+
+  handleNewFormChange = evt => {
+    const attribute = evt.target.name;
+    const contact = { ...this.state.contact };
+    contact[attribute] = evt.target.value;
+    this.setState({contact: contact});
+  };
+
+  handleSubmit = evt => {
+    evt.preventDefault();
+    console.log(this.state.contact)
+    axios.post("/api/v1/contacts/", this.state.contact).then(() => {
+      this.setState({
+        newContact: {
+          name: "",
+          phone_number: "",
+          customer_address: "",
+          order_history: ""
+        }
+      });
+    });
+    this.componentDidMount();
+  };
+
+
   render() {
-    const allContacts = this.state.contacts.map((contact) => {
+    const allContacts = this.state.contacts.map(contact => {
       return (
-        <Link className="previewAllInside" to={`/contact/${contact.id}`}>
+        <Link className="previewAllInside" to={`/contacts/${contact.id}`}>
           <div className="singleContainer">{contact.name}</div>
         </Link>
       );
@@ -85,14 +91,14 @@ export default class Contact extends Component {
         ) : null}
         {this.state.addContactInvisable === true ? (
           <div>
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <div className="inputBoxDiv">
                 <input
                   type="text"
                   placeholder="Name"
                   name="name"
-                  onChange={this.onChange}
-                  value={this.state.newContact.name}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newContact.name}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -100,8 +106,8 @@ export default class Contact extends Component {
                   type="text"
                   placeholder="Phone"
                   name="phone_number"
-                  onChange={this.onChange}
-                  value={this.state.newContact.phone_number}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newContact.phone_number}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -109,8 +115,8 @@ export default class Contact extends Component {
                   type="text"
                   placeholder="Address"
                   name="customer_address"
-                  onChange={this.onChange}
-                  value={this.state.newContact.customer_address}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newContact.customer_address}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -118,8 +124,8 @@ export default class Contact extends Component {
                   type="text"
                   placeholder="Order History"
                   name="order_history"
-                  onChange={this.onChange}
-                  value={this.state.newContact.order_history}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newContact.order_history}
                 ></input>
               </div>
               <div className="inputBoxDiv">

@@ -19,7 +19,9 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', views.FrontendAppView.as_view()), 
     path('api/v1/', include('peckn_app.urls')),
-    re_path(r'^.*$', views.FrontendAppView.as_view())
+    re_path(r'^.*$', views.FrontendAppView.as_view()),
+    
 ]

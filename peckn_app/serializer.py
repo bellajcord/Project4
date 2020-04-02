@@ -10,9 +10,9 @@ class ProductSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('id', 'customer_name', 'product', 'dimensions', 'color', 'order_date', 'due_date', 'cost', 'deposit')
+        fields = ('id', 'name', 'product', 'dimensions', 'color', 'order_date', 'due_date', 'cost', 'deposit')
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ('id', 'customer_name', 'phone_number', 'customer_address', 'order_history')
+        fields = ('id', 'name', 'phone', 'customer_address', 'order_history')
