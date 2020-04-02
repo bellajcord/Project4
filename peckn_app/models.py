@@ -24,7 +24,7 @@ class CustomerContact(models.Model):
     def __str__(self):
         return self.customer_name
 
-class ProductList(models.Model):
+class Product(models.Model):
     name: models.CharField(max_length=200)
     description: models.CharField(max_length=400)
     sample_img: models.CharField(max_length=400)
