@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export default class Contact extends Component {
   state = {
-    contacts: [],
+    CustomerContacts: [],
     newContact: {
-      customer_name: "",
+      name: "",
       phone_number: "",
       customer_address: "",
       order_history: ""
@@ -17,8 +17,8 @@ export default class Contact extends Component {
     this.reloadContactsPage();
   }
   reloadContactsPage = () => {
-    axios.get("/api/v1/contact/").then(res => {
-      this.setState({ contacts: res.data });
+    axios.get("/api/v1/CustomerContact/").then(res => {
+      this.setState({ CustomerContacts: res.data });
     });
   };
   onChange = evt => {
@@ -37,12 +37,12 @@ export default class Contact extends Component {
   };
   onSubmit = evt => {
     evt.preventDefault();
-    axios.post("/api/v1/contact/", this.state.newContact).then(() => {
+    axios.post("/api/v1/CustomerContact/", this.state.newContact).then(() => {
       this.reloadContactsPage();
       this.toggleAddContactForm();
       const copyOfState = { ...this.state };
       copyOfState.newContact = {
-        customer_name: "",
+        name: "",
         phone_number: "",
         customer_address: "",
         order_history: ""
@@ -58,8 +58,8 @@ export default class Contact extends Component {
   render() {
     const allContacts = this.state.contacts.map(contact => {
       return (
-        <Link className="previewAllInside" to={`/contact/${contact.id}`}>
-          <div className="singleContainer">{contact.customer_name}</div>
+        <Link className="previewAllInside" to={`/CustomerContact/${contact.id}`}>
+          <div className="singleContainer">{CustomerContact.name}</div>
         </Link>
       );
     });
@@ -98,7 +98,7 @@ export default class Contact extends Component {
                   placeholder="name"
                   name="name"
                   onChange={this.onChange}
-                  vlaue={this.state.newContact.customer_name}
+                  value={this.state.newContact.name}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -107,7 +107,7 @@ export default class Contact extends Component {
                   placeholder="company"
                   name="company"
                   onChange={this.onChange}
-                  vlaue={this.state.newContact.phone_number}
+                  value={this.state.newContact.phone_number}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -116,7 +116,7 @@ export default class Contact extends Component {
                   placeholder="address"
                   name="address"
                   onChange={this.onChange}
-                  vlaue={this.state.newContact.customer_address}
+                  value={this.state.newContact.customer_address}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -125,11 +125,11 @@ export default class Contact extends Component {
                   placeholder="order history"
                   name="order_history"
                   onChange={this.onChange}
-                  vlaue={this.state.newContact.order_history}
+                  value={this.state.newContact.order_history}
                 ></input>
               </div>
               <div className="inputBoxDiv">
-                <input type="submit" vlaue="Create"></input>
+                <input type="submit" value="Create"></input>
               </div>
             </form>
           </div>

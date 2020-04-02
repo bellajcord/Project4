@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Order(models.Model):
-    customer_name: models.CharField(max_length=255)
+    name: models.CharField(max_length=255)
     product: models.CharField(max_length=400)
     dimensions: models.CharField(max_length=200)
     color: models.CharField(max_length=200)
@@ -16,7 +16,7 @@ class Order(models.Model):
         return self.customer_name
 
 class CustomerContact(models.Model):
-    customer_name: models.CharField(max_length=200)
+    name: models.CharField(max_length=200)
     phone: models.CharField(blank=True, help_text='Contact phone number')
     customer_address: models.CharField(max_length=250)
     order_history: models.CharField(max_length=400)

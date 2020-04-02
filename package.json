@@ -1,7 +1,20 @@
 {
-    "name": "pecknmanage",
-    "scripts": {
-      "build": "cd client && npm install && npm run build && cd ..",
-      "postinstall": "npm run build && echo 'Client built!'"
-    }
+  "name": "pecknmanage",
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "postinstall": "npm run build && echo 'Client built!'"
+  },
+  "engines": {
+    "node" : "13.8.0"
+  },
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/bellajco/Project4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
