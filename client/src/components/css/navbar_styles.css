@@ -1,0 +1,18 @@
+#logo_image {
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+}
+
+.header-fix {
+    background-color: black;
+    text-align: center;
+}
+
+.nav {
+    text-decoration: none;
+    display: inline-block;
+    color: goldenrod;
+    font-size: 40px;
+    padding: .5em;
+}
