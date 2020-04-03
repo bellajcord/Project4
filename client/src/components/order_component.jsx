@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import NavBar from "./Navbar_component";
 
 export default class Order extends Component {
   state = {
@@ -77,6 +78,7 @@ export default class Order extends Component {
 
     return (
       <div className="contacts-container">
+      <div><NavBar /></div>
         <h1>Orders</h1>
         {this.state.addOrderInvisable === false ? (
           <div className="submit-button-container">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavBar from './/components/Navbar_component';
+
 import HomePage from './components/HomePage';
 import Product from './components/product_list_compnent';
 import Orders from './components/order_component';
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-        <div><NavBar /></div>
+        
           <div className='router-body'>
           <Switch>
           <Route exact path='/' component={HomePage}/>

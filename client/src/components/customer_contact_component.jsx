@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import '../components/css/contact_stying.css'
+import NavBar from './Navbar_component';
 
 export default class Contact extends Component {
   state = {
@@ -42,6 +43,7 @@ export default class Contact extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     console.log(this.state.contact)
+    this.toggleAddContactForm()
     axios.post("/api/v1/contacts/", this.state.contact).then(() => {
       this.setState({
         newContact: {
@@ -87,6 +89,7 @@ export default class Contact extends Component {
     return (
       
       <div className="contacts-container">
+      <div><NavBar /></div>
             <h1 id='title'>Customer Contact Info</h1>
             {this.state.addContactInvisable === false ? (
               <div className="submit-button-container">

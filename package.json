@@ -5,9 +5,12 @@
     "postinstall": "npm run build && echo 'Client built!'"
   },
   "engines": {
-    "node" : "13.8.0"
+    "node": "13.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "react-bootstrap": "^1.0.0"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "repository": {

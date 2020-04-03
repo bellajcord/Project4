@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import NavBar from "./Navbar_component";
 
 export default class Product extends Component {
   state = {
@@ -91,14 +92,15 @@ export default class Product extends Component {
   render() {
     const allProducts = this.state.products.map(product => {
       return (
-        <Link className="previewAllInside" to={`/products/${product.id}`}>
+        <section className="previewAllInside">
           <div className="singleContainer">{product.name}</div>
-        </Link>
+        </section>
       );
     });
 
     return (
       <div className="contacts-container">
+      <div><NavBar /></div>
         <h1>Products</h1>
         {this.state.addProductInvisable === false ? (
           <div className="submit-button-container">
