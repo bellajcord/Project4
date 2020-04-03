@@ -105,7 +105,7 @@ export default class Contact extends Component {
                 <input
                   type="text"
                   placeholder="Phone"
-                  name="phone_number"
+                  name="phone"
                   onChange={this.handleNewFormChange}
                   //value={this.state.newContact.phone_number}
                 ></input>

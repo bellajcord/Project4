@@ -4,7 +4,24 @@ import { Link } from "react-router-dom";
 
 export default class Product extends Component {
   state = {
-    Products: [],
+    products: [],
+    product: {
+      name: "",
+      description: "",
+    sample_img: "",
+    material1: "",
+    material_quantity1: "",
+    material2: "",
+    material_quantity2: "",
+    material3: "",
+    material_quantity3: "",
+    material4: "",
+    material_quantity4: "",
+    material5: "",
+    material_quantity5: "",
+    material6: "",
+    material_quantity6: "",
+    },
     newProduct: {
         name: "",
         description: "",
@@ -24,64 +41,58 @@ export default class Product extends Component {
     },
     addProductInvisable: false
   };
-  componentDidMount() {
-    this.reloadProductsPage();
-  }
-  reloadProductsPage = () => {
-    axios.get("/api/v1/Product/").then(res => {
-      this.setState({ Products: res.data });
-    });
-  };
-  onChange = evt => {
-    const value = evt.target.value;
-    const name = evt.target.name;
-    const copyOfState = { ...this.state };
-    copyOfState.newProduct[name] = value;
-    this.setState(copyOfState);
-  };
-  onChange = evt => {
-    const value = evt.target.value;
-    const name = evt.target.name;
-    const copyOfState = { ...this.state };
-    copyOfState.newProduct[name] = value;
-    this.setState(copyOfState);
-  };
-  onSubmit = evt => {
-    evt.preventDefault();
-    axios.post("/api/v1/Product/", this.state.newProduct).then(() => {
-      this.reloadProductsPage();
-      this.toggleAddContactForm();
-      const copyOfState = { ...this.state };
-      copyOfState.newContact = {
-        name: "",
-        description: "",
-      sample_img: "",
-      material1: "",
-      material_quantity1: "",
-      material2: "",
-      material_quantity2: "",
-      material3: "",
-      material_quantity3: "",
-      material4: "",
-      material_quantity4: "",
-      material5: "",
-      material_quantity5: "",
-      material6: "",
-      material_quantity6: "",
-      };
-      this.setState(copyOfState);
-    });
-  };
+  
   toggleAddProductForm = () => {
     const toggle = !this.state.addProductInvisable;
     this.setState({ addProductInvisable: toggle });
   };
 
+  componentDidMount = () => {
+    axios.get("/api/v1/products/").then(res => {
+      this.setState({ products: res.data });
+    });
+  };
+
+  handleNewFormChange = evt => {
+    const attribute = evt.target.name;
+    const product = { ...this.state.product };
+    product[attribute] = evt.target.value;
+    this.setState({product: product});
+  };
+
+  handleSubmit = evt => {
+    evt.preventDefault();
+    console.log(this.state.product)
+    axios.post("/api/v1/products/", this.state.product).then(() => {
+      this.setState({
+        newProduct: {
+          name: "",
+          description: "",
+        sample_img: "",
+        material1: "",
+        material_quantity1: "",
+        material2: "",
+        material_quantity2: "",
+        material3: "",
+        material_quantity3: "",
+        material4: "",
+        material_quantity4: "",
+        material5: "",
+        material_quantity5: "",
+        material6: "",
+        material_quantity6: "",
+      }
+      });
+    });
+    this.componentDidMount();
+  };
+
+
   render() {
-    const allProducts = this.state.Products.map(product => {
+    const allProducts = this.state.products.map(product => {
       return (
-        <Link className="previewAllInside" to={`/Product/${product.id}`}>
-          <div className="singleContainer">{Product.name}</div>
+        <Link className="previewAllInside" to={`/products/${product.id}`}>
+          <div className="singleContainer">{product.name}</div>
         </Link>
       );
     });
@@ -113,14 +124,14 @@ export default class Product extends Component {
         ) : null}
         {this.state.addProductInvisable === true ? (
           <div>
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <div className="inputBoxDiv">
                 <input
                   type="text"
                   placeholder="name"
                   name="name"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.name}
+                  onChange={this.handleNewFormChange}
+                //  value={this.state.newProduct.name}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -128,8 +139,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="description"
                   name="description"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.description}
+                  onChange={this.handleNewFormChange}
+                //  value={this.state.newProduct.description}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -137,8 +148,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Image"
                   name="sample_img"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.sample_img}
+                  onChange={this.handleNewFormChange}
+                //  value={this.state.newProduct.sample_img}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -146,8 +157,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Material 1"
                   name="material1"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material1}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material1}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -155,8 +166,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Quantity 1"
                   name="material_quantity1"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material_quantity1}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material_quantity1}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -164,8 +175,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Material 2"
                   name="material2"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material2}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material2}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -173,8 +184,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Quantity 2"
                   name="material_quantity2"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material_quantity2}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material_quantity2}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -182,8 +193,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Material 3"
                   name="material3"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material3}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newProduct.material3}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -191,8 +202,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Quantity 3"
                   name="material_quantity3"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material_quantity3}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material_quantity3}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -200,8 +211,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Material 4"
                   name="material4"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material4}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material4}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -209,8 +220,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Quantity 4"
                   name="material_quantity4"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material_quantity4}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newProduct.material_quantity4}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -218,8 +229,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Material 5"
                   name="material5"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material5}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newProduct.material5}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -227,8 +238,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Quantity 5"
                   name="material_quantity5"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material_quantity5}
+                  onChange={this.handleNewFormChange}
+                 // value={this.state.newProduct.material_quantity5}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -236,8 +247,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Material 6"
                   name="material6"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material6}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newProduct.material6}
                 ></input>
               </div>
               <div className="inputBoxDiv">
@@ -245,8 +256,8 @@ export default class Product extends Component {
                   type="text"
                   placeholder="Quantity 6"
                   name="material_quantity6"
-                  onChange={this.onChange}
-                  value={this.state.newProduct.material_quantity6}
+                  onChange={this.handleNewFormChange}
+                  //value={this.state.newProduct.material_quantity6}
                 ></input>
               </div>
               <div className="inputBoxDiv">
