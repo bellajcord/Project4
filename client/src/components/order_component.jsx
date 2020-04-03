@@ -27,44 +27,44 @@ export default class Order extends Component {
     },
     addOrderInvisable: false
   };
-  
   toggleAddOrderForm = () => {
     const toggle = !this.state.addOrderInvisable;
     this.setState({ addOrderInvisable: toggle });
   };
 
-componentDidMount = () => {
-  axios.get("/api/v1/orders/").then(res => {
-    this.setState({orders: res.data});
-  });
-};
+  componentDidMount = () => {
+    axios.get("/api/v1/orders/").then(res => {
+      this.setState({ orders: res.data });
+    });
+  };
 
-handleNewFormChange = evt => {
-  const attribute = evt.target.name;
-  const order = {...this.state.order};
-  order[attribute] = evt.target.value;
-  this.setState({order: order});
-};
+  handleNewFormChange = evt => {
+    const attribute = evt.target.name;
+    const order = { ...this.state.order };
+    order[attribute] = evt.target.value;
+    this.setState({order: order});
+  };
 
-handleSubmit = evt => {
-  evt.preventDefault();
-  console.log(this.state.order)
-  axios.post("/api/v1/orders/", this.state.order).then(() => {
-    this.setState({
-      newOrder: {
-        name: "",
-        product: "",
-        dimensions: "",
-        color: "",
-        order_date: "",
-        due_date: "",
-        cost:"",
-        deposit: "",
-    }
-  });
-});
-this.componentDidMount();
-};
+  handleSubmit = evt => {
+    evt.preventDefault();
+    console.log(this.state.order)
+    axios.post("/api/v1/orders/", this.state.order).then(() => {
+      this.setState({
+        newOrder: {
+          name: "",
+          product: "",
+          dimensions: "",
+          color: "",
+          order_date: "",
+          due_date: "",
+          cost:"",
+          deposit: "",
+        }
+      });
+    });
+    this.componentDidMount();
+  };
+
 
   render() {
     const allOrders = this.state.orders.map(order => {
