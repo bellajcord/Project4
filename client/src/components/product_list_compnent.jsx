@@ -88,12 +88,45 @@ export default class Product extends Component {
     this.componentDidMount();
   };
 
+  
+
 
   render() {
     const allProducts = this.state.products.map(product => {
       return (
         <section className="previewAllInside">
-          <div className="singleContainer">{product.name}</div>
+          <div className="img-sample">{product.sample_img}</div>
+          <div className="singleContainer">Name:{product.name}</div>
+          <div className="description">Description:{product.description}</div>
+          <table className="materials-list">
+            <tbody>
+            <tr>
+            <td>{product.material1}</td>
+            <td>{product.material_quantity1}</td>
+         </tr>
+         <tr>
+            <td>{product.material2}</td>
+            <td>{product.material_quantity2}</td>
+         </tr>
+         <tr>
+            <td>{product.material3}</td>
+            <td>{product.material_quantity3}</td>
+         </tr>
+         <tr>
+            <td>{product.material4}</td>
+            <td>{product.material_quantity4}</td>
+         </tr>
+         <tr>
+            <td>{product.material5}</td>
+            <td>{product.material_quantity5}</td>
+         </tr>
+         <tr>
+            <td>{product.material6}</td>
+            <td>{product.material_quantity6}</td>
+         </tr>
+         
+            </tbody>
+          </table>
         </section>
       );
     });
