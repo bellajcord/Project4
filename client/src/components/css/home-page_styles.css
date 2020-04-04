@@ -1,0 +1,40 @@
+.masthead {
+background: url(https://i.imgur.com/6iPVkRF.png?2);
+  background-size: cover;
+  height:600px;
+  background-repeat: no-repeat;
+  margin-top: 0em;
+  background-color: black;
+}
+
+.router-link {
+    text-decoration: none;
+    color: goldenrod;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.router-link:hover{
+    transform: scale(1.5);
+    opacity: .4;
+}
+
+.home-page-body {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+}
+
+.home-page-routing-container {
+    overflow: hidden;
+    margin-top: 0em;
+    border: solid black;
+    padding: 3em;
+    text-align: center;
+    background-color: rgb(34, 33, 33);
+}
+
+
+.home-page-routing-container:hover{
+    transform: scale(1);
+    opacity: .8;
+}
