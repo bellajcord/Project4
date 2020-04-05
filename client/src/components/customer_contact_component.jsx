@@ -162,7 +162,7 @@ export default class Contact extends Component {
                  ></input>
                </div>
                <div className="inputBoxDiv">
-                 <input type="submit" value="Create"></input>
+                 <input className="submit-button" type="submit" value="Create"></input>
                </div>
              </form>
           </div>
