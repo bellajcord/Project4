@@ -93,9 +93,17 @@ export default class Product extends Component {
     const allProducts = this.state.products.map(product => {
       return (
         <section className="previewAllInside">
-          <div className="img-sample">{product.sample_img}</div>
-          <div className="singleContainer">Name:{product.name}</div>
-          <div className="description">Description:{product.description}</div>
+          <div className="img-sample">
+          <img className="image" src={product.sample_img}></img>
+          </div>
+          <div className="singleContainer">Name:
+          <br/>
+          <br/>
+          {product.name}</div>
+          <div className="description">Description:
+          <br/>
+          <br/>
+          {product.description}</div>
           <table id="materials-list">
             <tbody>
               <tr>
@@ -133,14 +141,14 @@ export default class Product extends Component {
         <div>
           <NavBar />
         </div>
-        <h1>Products</h1>
+        <h1 className="product">Products</h1>
         {this.state.addProductInvisable === false ? (
           <div className="submit-button-container">
             <button
               className="submit-button"
               onClick={this.toggleAddProductForm}
-            >
-              Add Product
+            ><span> Add Product</span>
+              
             </button>
           </div>
         ) : (
@@ -148,8 +156,8 @@ export default class Product extends Component {
             <button
               className="submit-button"
               onClick={this.toggleAddProductForm}
-            >
-              Back
+            ><span>Back</span>
+              
             </button>
           </div>
         )}
@@ -158,7 +166,7 @@ export default class Product extends Component {
         ) : null}
         {this.state.addProductInvisable === true ? (
           <div>
-            <form onSubmit={this.handleSubmit}>
+            <form className="product_form" onSubmit={this.handleSubmit}>
               <div className="inputBoxDiv">
                 <input
                   type="text"
@@ -294,8 +302,9 @@ export default class Product extends Component {
                   //value={this.state.newProduct.material_quantity6}
                 ></input>
               </div>
+              <br/>
               <div className="inputBoxDiv">
-                <input type="submit" value="Create"></input>
+                <input className="submit-button" type="submit" value="Create"></input>
               </div>
             </form>
           </div>

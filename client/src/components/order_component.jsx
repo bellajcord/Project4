@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import NavBar from "./Navbar_component";
+import './css/order_styles.css';
 
 export default class Order extends Component {
   state = {
@@ -85,8 +86,8 @@ export default class Order extends Component {
             <button
               className="submit-button"
               onClick={this.toggleAddOrderForm}
-            >
-              Add Order
+            ><span>Add Order</span>
+              
             </button>
           </div>
         ) : (
@@ -94,8 +95,8 @@ export default class Order extends Component {
             <button
               className="submit-button"
               onClick={this.toggleAddOrderForm}
-            >
-              Back
+            ><span>Back</span>
+              
             </button>
           </div>
         )}
@@ -104,7 +105,7 @@ export default class Order extends Component {
         ) : null}
         {this.state.addOrderInvisable === true ? (
           <div>
-            <form onSubmit={this.handleSubmit}>
+            <form className="product_form" onSubmit={this.handleSubmit}>
               <div className="inputBoxDiv">
                 <input
                   type="text"
@@ -178,7 +179,7 @@ export default class Order extends Component {
                 ></input>
               </div>
               <div className="inputBoxDiv">
-                <input type="submit" value="Create"></input>
+                <input className="submit-button" type="submit" value="Create"></input>
               </div>
             </form>
           </div>
