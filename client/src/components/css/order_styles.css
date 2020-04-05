@@ -54,3 +54,33 @@
   h1 {
       text-align: center;
   }
+
+  .previewAllInsideOrders {
+    width: 98vw;
+    margin-top: 40px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.singleContainerOrders {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: greyscale;
+    backface-visibility: hidden;
+    transform: translate();
+    transition: transform 0.25 ease-out;
+    text-align: center;
+    align-items: center;
+}
+
+.singleContainerOrders:hover {
+    transform: scale(1.05);
+}
