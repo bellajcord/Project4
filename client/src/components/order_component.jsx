@@ -71,7 +71,7 @@ export default class Order extends Component {
   render() {
     const allOrders = this.state.orders.map(order => {
       return (
-        <section className="previewAllInsideOrders">
+        <div className="previewAllInsideOrders">
           <div className="singleContainerOrders">
           <ul key={order.id}>
           <h3>{order.name}</h3>
@@ -84,7 +84,7 @@ export default class Order extends Component {
           <li>Deposit: ${order.deposit}</li>
           </ul>
           </div>
-        </section>
+        </div>
       );
     });
 

@@ -95,8 +95,8 @@ export default class Contact extends Component {
                 <button
                   className="submit-button"
                   onClick={this.toggleAddContactForm}
-                >
-                  Add Contact
+                ><span>Add Contact</span>
+                  
                 </button>
               </div>
             ) : (
@@ -104,8 +104,8 @@ export default class Contact extends Component {
                 <button
                   className="submit-button"
                   onClick={this.toggleAddContactForm}
-                >
-                  Back
+                ><span>Back</span>
+                  
                 </button>
               </div>
             )}
