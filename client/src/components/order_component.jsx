@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import NavBar from "./Navbar_component";
 import './css/order_styles.css';
 
@@ -50,6 +49,7 @@ export default class Order extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     console.log(this.state.order)
+    this.toggleAddOrderForm()
     axios.post("/api/v1/orders/", this.state.order).then(() => {
       this.setState({
         newOrder: {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import NavBar from "./Navbar_component";
 import './css/product_styles.css';
 
@@ -65,6 +64,7 @@ export default class Product extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     console.log(this.state.product);
+    this.toggleAddProductForm()
     axios.post("/api/v1/products/", this.state.product).then(() => {
       this.setState({
         newProduct: {
@@ -94,7 +94,7 @@ export default class Product extends Component {
       return (
         <section className="previewAllInside">
           <div className="img-sample">
-          <img className="image" src={product.sample_img}></img>
+          <img className="image" src={product.sample_img} alt="sample"></img>
           </div>
           <div className="singleContainer">Name:
           <br/>

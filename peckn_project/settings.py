@@ -138,12 +138,5 @@ STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
 ]
 
-# REST_FRAMEWORK = {
-#     # Use Django's standard `django.contrib.auth` permissions,
-#     # or allow read-only access for unauthenticated users.
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',    
-#     ]
-# }
- 
+
 django_heroku.settings(locals())
