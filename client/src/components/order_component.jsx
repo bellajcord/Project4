@@ -28,6 +28,7 @@ export default class Order extends Component {
     },
     addOrderInvisable: false
   };
+
   toggleAddOrderForm = () => {
     const toggle = !this.state.addOrderInvisable;
     this.setState({ addOrderInvisable: toggle });
@@ -67,15 +68,13 @@ export default class Order extends Component {
     this.componentDidMount();
   };
 
-
   render() {
     const allOrders = this.state.orders.map(order => {
       return (
         <section className="previewAllInsideOrders">
           <div className="singleContainerOrders">
+          <ul key={order.id}>
           <h3>{order.name}</h3>
-          <br/>
-          <ul>
           <li>Product: {order.product}</li>
           <li>Dimensions: {order.dimensions}</li>
           <li>Color: {order.color}</li>

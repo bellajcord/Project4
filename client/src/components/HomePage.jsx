@@ -7,7 +7,7 @@ export default class HomePage extends Component {
         return (
             <div className="home-page">
             <div className='masthead'>
-                    <img id='logo_image' src='' ></img>
+                    <img id='logo_image' src='' alt='' ></img>
                 </div>
             <div className="home-page-body">
                 

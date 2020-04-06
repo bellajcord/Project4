@@ -9,19 +9,26 @@
 * Link to deployed site- https://pecknmanage.herokuapp.com/
 
 ## Overview
-Code Pergatory was created as an open source collection of coding youtube videos so that the essentials are all and one place and easy to navigate. This app will cut down the amount of wasted hours someone spends on youtube trying to find the right videos to learn code. 
+Peck'n Woods Management was created to aid in the management of products, orders, and and customer information for my furniture building company.  
 
 ## Technology Used
 
-* Javascript, Mongoose, MongoDB, Express, React, Node.js
+* JavaScript, React, HTML, CSS, MVC
 
 
 
 
 
-ERD:
-![alt text](./readmeimages/erd.jpg)
+#ERD:
+![alt text](./Readme-images/PecknERD.jpeg)
+
+#WireFrame:
+
+![alt text](Readme-images/customerwireframe.jpg)
+![alt text](Readme-images/Prodlistwireframe.jpeg)
+![alt text](Readme-images/OrderTrackerWireframe.jpeg)
 
 
-Final Product:
-![alt text](./readmeimages/codeperghome.png)
+
+#Final Product:
+![alt text](./Readme-images/Image&#32;4-6-20&#32;at&#32;11.52&#32;AM.jpeg)
