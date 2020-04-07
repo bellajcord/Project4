@@ -75,13 +75,7 @@ export default class Contact extends Component {
 
 
   render() {
-    // const allContacts = this.state.contacts.map(contact => {
-    //   return (
-    //     <Link className="previewAllInside" to={`/contacts/${contact.id}`}>
-    //       <div className="singleContainer">{contact.name}</div>
-    //     </Link>
-    //   );
-    // });
+    
     
 
 

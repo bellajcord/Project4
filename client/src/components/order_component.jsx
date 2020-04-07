@@ -156,7 +156,7 @@ export default class Order extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="Order Date"
+                  placeholder="YYYY-MM-DD"
                   name="order_date"
                   onChange={this.handleNewFormChange}
                   //value={this.state.newOrder.order_date}
@@ -165,7 +165,7 @@ export default class Order extends Component {
               <div className="inputBoxDiv">
                 <input
                   type="text"
-                  placeholder="Due Date"
+                  placeholder="YYYY-MM-DD"
                   name="due_date"
                   onChange={this.handleNewFormChange}
                   //value={this.state.newOrder.due_date}
